@@ -524,14 +524,7 @@ CordovaGoogleMaps.prototype.removeDomTree = function(node) {
     // remove the attribute.
     // (Note that the `_isRemoved` flag is set in MutationObserver.)
     if (isRemoved) {
-
-      if (child.__pluginDomId) {
-        Object.defineProperty(child, '__pluginDomId', {
-          enumerable: false,
-          value: undefined
-        });
-      }
-
+      child.removeAttribute('__pluginDomId');
 
       // If map div, remove the map also.
       if (child.__pluginMapId) {
